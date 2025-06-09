@@ -19,7 +19,7 @@ void	init_func(t_files *file, char **envp, t_pipesort *piped, int argc)
 
 	i = 0;
 	tmp = piped;
-	file->paths = malloc(sizeof(char *) * 1);
+	//file->paths = malloc(sizeof(char *) * 1);
 	file->envp = envp;
 	file->cmd_count = argc;
 	file->cmds = malloc(sizeof(char **) * file->cmd_count);
@@ -28,7 +28,7 @@ void	init_func(t_files *file, char **envp, t_pipesort *piped, int argc)
 	i = 0;
 	while (i < file->cmd_count)
 	{
-		file->cmds[i] = tmp->content;
+		file->cmds[i] = dup_args(tmp->content);
 		tmp = tmp->next;
 		i++;
 	}
@@ -45,3 +45,35 @@ void	inform_path_error(void)
 {
 	exit(1);
 }
+
+void	free_pipesort(t_pipesort *piped)
+{
+	t_pipesort *tmp;
+
+	while (piped)
+	{
+		tmp = piped->next;
+		if(piped->content)
+			free(piped->content);
+		free(piped);
+		piped = tmp;
+	}
+}
+
+void	free_file(t_files *file)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while( i < file->cmd_count)
+	{
+		j = 0;
+		while(file->cmds[i][j])
+			free(file->cmds[i][j++]);
+		free(file->cmds[i]);
+		i++;
+	}
+	free(file->cmds);
+}
+
