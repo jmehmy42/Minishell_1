@@ -6,7 +6,7 @@
 /*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:57:29 by thguimar          #+#    #+#             */
-/*   Updated: 2025/06/09 00:17:50 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/08 20:59:27 by kwillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_dptr(char **clc, int i)
 {
-	if (!clc)
+	if (clc)
 		return ;
 	if (clc)
 	{
@@ -24,8 +24,7 @@ void	free_dptr(char **clc, int i)
 			clc[i] = NULL;
 			i++;
 		}
-		if (clc)
-			clc = NULL;
+		free(clc);
 	}
 }
 
@@ -40,18 +39,15 @@ void	ft_free(void **pointer)
 
 void	final_cleaner(t_shell *utils)
 {
-	if (utils->builtins)
-		free_dptr(utils->builtins, 0);
-	if (utils->exp)
-		free_dptr(utils->exp, 0);
-	if (utils->command)
-		free_dptr(utils->command, 0);
-	if (utils->export)
-		free(utils->export);
-	if (utils->input)
-		free(utils->input);
-	if (utils)
-		free(utils);
+	free_dptr(utils->builtins, 0);
+	free_dptr(utils->exp, 0);
+	free_dptr(utils->command, 0);
+	free_dptr(utils->envr, 0);
+	free(utils->export);
+	free(utils->input);
+	free(utils->echo_breed);
+	free(utils->splitex);
+	free(utils);
 }
 
 void	clear_little_things(char **argv, t_shell *utils)

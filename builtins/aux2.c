@@ -6,7 +6,7 @@
 /*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 21:56:23 by kwillian          #+#    #+#             */
-/*   Updated: 2025/06/08 23:25:25 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/06 01:07:12 by kwillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ char	*expand_pid(char *str, int j, t_shell *utils)
 	before = ft_substr(str, 0, j - 2);
 	after = ft_substr(str, j, ft_strlen(str) - j);
 	joined = ft_strjoin(before, pid_str);
-	free(str);
+	//free(str);
 	str = ft_strjoin(joined, after);
-	free_expansion(utils);
+	//free_expansion(utils);
+	//free(joined);
 	free(pid_str);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:54:34 by kwillian          #+#    #+#             */
-/*   Updated: 2025/06/09 00:21:36 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/08 23:26:47 by kwillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,6 @@ void	pipex(int argc, t_pipesort *piped, t_shell *utils, char *path)
 	}
 	piped = head;
 	main3pipex(file, piped, utils);
+	free(head);
+	free(file);
 }

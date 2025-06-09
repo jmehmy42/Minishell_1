@@ -6,7 +6,7 @@
 /*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 22:05:30 by kwillian          #+#    #+#             */
-/*   Updated: 2025/06/08 23:35:16 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/06 01:28:04 by kwillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,3 +78,18 @@ char	*remove_before_last_echo(char *str)
 	result = ft_strdup(last_echo + 5);
 	return (result);
 }
+
+// char	*remove_before_last_echo(char *str)
+// {
+// 	char	*last_echo;
+// 	char	*result;
+// 	last_echo = ft_strrstr(str, " echo ");
+// 	if (!last_echo)
+// 	{
+// 		result = ft_strdup(str);
+// 		return (result);
+// 	}
+// 	free(str);
+// 	result = ft_strdup(last_echo + 5);
+// 	return (result);
+// }

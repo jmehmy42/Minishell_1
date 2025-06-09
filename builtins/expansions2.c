@@ -6,7 +6,7 @@
 /*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:03:27 by joanda-s          #+#    #+#             */
-/*   Updated: 2025/06/09 00:18:34 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/05 20:23:54 by kwillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ char	*expansions(char *argv, t_shell *utils, int pa)
 		return (free_dptr(utils->splitex, 0), ft_strdup(argv));
 	ex_splitex(utils, i);
 	finish_expansion(utils);
-	//free_dptr(utils->splitex, 0);
+	free_dptr(utils->splitex, 0);
 	return (utils->output_ex);
 }

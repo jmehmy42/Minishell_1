@@ -6,7 +6,7 @@
 /*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:19:40 by thiago-camp       #+#    #+#             */
-/*   Updated: 2025/06/09 00:19:44 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/08 23:25:58 by kwillian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	process_and_print_output(char **final_reader, char *arr, t_shell *utils)
 	ft_putstr_fd(utils->processed_output, 1);
 	if (echo_flag(arr) == 0)
 		ft_putstr_fd("\n", 1);
-	// free(final_reader);
-	// free(output);
-	// free(utils->processed_output);
+	free(final_reader);
+	free(output);
+	free(utils->processed_output);
 }
 
 void	handle_quotes_echo(t_shell *utils)
@@ -123,4 +123,5 @@ void	build_echo(char *arr, t_shell *utils, int i, int j)
 	while (arr[utils->i])
 		process_echo_segment(utils);
 	process_and_print_output(utils->final_reader, arr, utils);
+	free_dptr(utils->final_reader, 0);
 }
