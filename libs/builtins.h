@@ -153,6 +153,7 @@ typedef struct s_shell
 	char			*output_ex;
 	char			dollar;
 	int				count_var;
+	t_pipesort 		*pipex;
 }		t_shell;
 
 typedef struct s_cd
@@ -208,6 +209,9 @@ char	*ft_strrstr(const char *haystack, const char *needle);
 void	free_split(char **split);
 void	close_inout(t_files *file);
 char	*trim_start(char *str);
+void	free_pipesort(t_pipesort *piped);
+void	free_file(t_files *file);
+char	**dup_args(char **args);
 
 //path
 void	path_cleaner(char **paths);
