@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 16:02:20 by thiago-camp       #+#    #+#             */
-/*   Updated: 2025/06/06 01:06:33 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:20:09 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_func(t_files *file, char **envp, t_pipesort *piped, int argc)
 	i = 0;
 	while (i < file->cmd_count)
 	{
-		file->cmds[i] = dup_args(tmp->content);
+		file->cmds[i] = tmp->content;
 		tmp = tmp->next;
 		i++;
 	}
@@ -46,17 +46,17 @@ void	inform_path_error(void)
 	exit(1);
 }
 
-void	free_pipesort(t_pipesort *piped)
+void	free_pipesort(t_pipesort *head)
 {
 	t_pipesort *tmp;
 
-	while (piped)
+	while (head)
 	{
-		tmp = piped->next;
-		if(piped->content)
-			free(piped->content);
-		free(piped);
-		piped = tmp;
+		if(head->content)
+			free_dptr(head->content, 0);
+		tmp = head->next;
+		free(head);
+		head = tmp;
 	}
 }
 
