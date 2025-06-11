@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:56:34 by thguimar          #+#    #+#             */
-/*   Updated: 2025/06/06 01:25:57 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:06:10 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_free_pid(char **pid)
 	while (pid[i])
 	{
 		free(pid[i]);
+		pid[i] = NULL;
 		i++;
 	}
 	free(pid);
