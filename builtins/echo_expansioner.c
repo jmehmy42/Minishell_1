@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo_expansioner.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:38:35 by thiago-camp       #+#    #+#             */
-/*   Updated: 2025/06/05 19:42:09 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:08:04 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,8 @@ int	size_before_pipe(char *str)
 
 char	**pipping_commands2(char *str, int x)
 {
-	char	**rtn;
-
-	rtn = ft_calloc(sizeof(char *), x + 1);
-	rtn = ft_split(str, '|');
-	return (rtn);
+	(void)x;
+	return (ft_split(str, '|'));
 }
 
 char	**pipping_commands(char *input)
