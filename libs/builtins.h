@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 20:40:04 by kwillian          #+#    #+#             */
-/*   Updated: 2025/06/08 21:10:10 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:26:20 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,9 +209,8 @@ char	*ft_strrstr(const char *haystack, const char *needle);
 void	free_split(char **split);
 void	close_inout(t_files *file);
 char	*trim_start(char *str);
-void	free_pipesort(t_pipesort *piped);
+void	free_pipesort(t_pipesort *head);
 void	free_file(t_files *file);
-char	**dup_args(char **args);
 
 //path
 void	path_cleaner(char **paths);
