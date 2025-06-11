@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commands.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:12:32 by thguimar          #+#    #+#             */
-/*   Updated: 2025/06/06 01:28:08 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:14:36 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	run_child_process(char **argv, t_shell *utils, t_pipesort *piped)
 		}
 	}
 	line_h_child(utils, piped, flag, argv);
+	free(utils->resolved_path);
+	utils->resolved_path = NULL;
 	free_dptr(utils->right_path, 0);
 	build_exit(argv, utils);
 }
