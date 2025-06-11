@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell4.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 01:44:46 by kwillian          #+#    #+#             */
-/*   Updated: 2025/06/08 20:54:34 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:21:44 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,17 @@ int	scary_thing(t_pipesort	*piped, t_shell *utils)
 	while (utils->command[++i])
 	{
 		piped_clone->next = ft_calloc(1, sizeof(t_pipesort));
+		if(!piped_clone->next)
+		{
+			free_pipesort(piped->next);
+			return (0);	
+		}
 		piped_clone->content = ft_split(utils->command[i], ' ');
+		if(!piped_clone->content)
+		{
+			free_pipesort(piped->next);
+			return (0);
+		}
 		piped_clone->id = i;
 		piped_clone->redirection = redirection_verifier(piped_clone);
 		if (piped_clone->redirection == true)
