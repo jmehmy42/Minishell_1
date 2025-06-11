@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:57:29 by thguimar          #+#    #+#             */
-/*   Updated: 2025/06/08 20:59:27 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/11 11:39:47 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_dptr(char **clc, int i)
 {
-	if (clc)
+	if (!clc)
 		return ;
 	if (clc)
 	{
