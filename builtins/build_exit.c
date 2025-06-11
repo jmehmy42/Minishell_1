@@ -6,7 +6,7 @@
 /*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:57:29 by thguimar          #+#    #+#             */
-/*   Updated: 2025/06/11 11:39:47 by jmehmy           ###   ########.fr       */
+/*   Updated: 2025/06/11 11:44:44 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@ void	free_dptr(char **clc, int i)
 {
 	if (!clc)
 		return ;
-	if (clc)
+	while (clc[i])
 	{
-		while (clc[i])
-		{
-			free(clc[i]);
-			clc[i] = NULL;
-			i++;
-		}
-		free(clc);
+		free(clc[i]);
+		clc[i] = NULL;
+		i++;
 	}
+		free(clc);
 }
 
 void	ft_free(void **pointer)
