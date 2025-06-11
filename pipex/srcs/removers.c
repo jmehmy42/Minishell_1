@@ -51,7 +51,7 @@ char	**remove_redirection(char **cmd, int index)
 	j = 0;
 	i = 0;
 	count = count_args(cmd);
-	new_cmd = malloc(sizeof(char *) * (count - 2 + 1));
+	new_cmd = malloc(sizeof(char *) * (count - 1));
 	while (cmd[i])
 	{
 		if (i == index || i == index + 1)
