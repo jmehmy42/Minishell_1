@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwillian <kwillian@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmehmy <jmehmy@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 20:39:41 by kwillian          #+#    #+#             */
-/*   Updated: 2025/06/08 20:52:10 by kwillian         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:30:40 by jmehmy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ int	main(int argc, char **argv, char **env)
 		utils->envr[i] = ft_strdup("SHLVL=1");
 	helper_lines(argc, argv, utils);
 	final_cleaner(utils);
+	rl_clear_history();
 	return (0);
 }
